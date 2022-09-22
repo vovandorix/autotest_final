@@ -2,10 +2,6 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 
-import time
-
-
-
 class ProductPage(BasePage):
 
     def should_be_product_page(self):
@@ -36,9 +32,7 @@ class ProductPage(BasePage):
         assert product_price.text == added_price.text, 'Price incorrect'
 
         print('-------ok------')
-        print(product_name.text)
-        print(product_price.text)
-        print('-------ok------')
+
 
 
 
