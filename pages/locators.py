@@ -15,6 +15,12 @@ class LoginPageLocators():
     REG_BTN = (By.CSS_SELECTOR, 'button[name="registration_submit"]')
 
 
+class ProductPageLocators():
+    PRODUCT_NAME = (By.CSS_SELECTOR, '.col-sm-6 h1')
+    PRODUCT_PRICE=(By.CSS_SELECTOR, '.col-sm-6 .price_color')
+    ADD2BASKET_BTN = (By.CSS_SELECTOR, '#add_to_basket_form button')
+
+
 
 
 
