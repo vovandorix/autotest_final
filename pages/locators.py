@@ -20,6 +20,11 @@ class ProductPageLocators():
     PRODUCT_PRICE=(By.CSS_SELECTOR, '.col-sm-6 .price_color')
     ADD2BASKET_BTN = (By.CSS_SELECTOR, '#add_to_basket_form button')
 
+    ADDED_NAME=(By.CSS_SELECTOR, '#messages :nth-child(1) .alertinner strong')
+    ADDED_PRICE = (By.CSS_SELECTOR, '#messages :nth-child(3) .alertinner strong')
+
+
+
 
 
 
