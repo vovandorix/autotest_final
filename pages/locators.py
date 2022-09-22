@@ -22,6 +22,7 @@ class ProductPageLocators():
 
     ADDED_NAME=(By.CSS_SELECTOR, '#messages :nth-child(1) .alertinner strong')
     ADDED_PRICE = (By.CSS_SELECTOR, '#messages :nth-child(3) .alertinner strong')
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages :nth-child(2) .alertinner strong')
 
 
 
