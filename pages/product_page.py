@@ -6,8 +6,8 @@ class ProductPage(BasePage):
 
     def should_be_product_page(self):
         #непонятка начало-----------------------
-        self.should_not_be_success_message1()
-        self.should_not_be_success_message2()
+        self.should_not_be_success_message()
+        self.should_dissapear_of_success_message()
         # непонятка конец-------------------------
 
         self.should_be_product_elements()
@@ -23,12 +23,11 @@ class ProductPage(BasePage):
     def add_to_basket(self):
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD2BASKET_BTN)
         add_to_basket_button.click()
-        self.solve_quiz_and_get_code()
+        #self.solve_quiz_and_get_code()
 
 
 
     def product_page_messages(self):
-        #time.sleep(10)
         product_name= self.browser.find_element(*ProductPageLocators.PRODUCT_NAME)
         added_name = self.browser.find_element(*ProductPageLocators.ADDED_NAME)
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
@@ -39,12 +38,12 @@ class ProductPage(BasePage):
         print('-------ok------')
 
     # совсем непонятное как в base_page
-    def should_not_be_success_message1(self):
+    def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
         print('FUNCTION 1 IS ENDED!!!')
 
-    def should_not_be_success_message2(self):
+    def should_dissapear_of_success_message(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message disappeared, but should not be"
         print('FUNCTION 2 IS ENDED!!!')
