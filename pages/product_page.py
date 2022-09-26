@@ -5,13 +5,9 @@ from .locators import ProductPageLocators
 class ProductPage(BasePage):
 
     def should_be_product_page(self):
-        #непонятка начало-----------------------
         self.should_not_be_success_message()
         self.should_dissapear_of_success_message()
-        # непонятка конец-------------------------
-
         self.should_be_product_elements()
-        self.add_to_basket()
         self.product_page_messages()
 
     def should_be_product_elements(self):
@@ -20,10 +16,15 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "Product name is not presented"
 
 
+    def add_to_basket_promo(self):
+        add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD2BASKET_BTN)
+        add_to_basket_button.click()
+        self.solve_quiz_and_get_code()
+
     def add_to_basket(self):
         add_to_basket_button = self.browser.find_element(*ProductPageLocators.ADD2BASKET_BTN)
         add_to_basket_button.click()
-        #self.solve_quiz_and_get_code()
+
 
 
 
@@ -35,9 +36,9 @@ class ProductPage(BasePage):
         assert product_name.text == added_name.text, 'Product not in basket'
         assert product_price.text == added_price.text, 'Price incorrect'
 
-        print('-------ok------')
 
-    # совсем непонятное как в base_page
+
+
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
